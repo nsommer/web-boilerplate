@@ -1,0 +1,26 @@
+{
+  "name": "Web Boilerplate",
+  "version": "0.0.0",
+  "homepage": "https://github.com/nsommer/web-boilerplate",
+  "authors": [
+    "Nils Sommer <mail@nilssommer.de>"
+  ],
+  "description": "A dead simple boilerplate for static HTML5 websites.",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "HTML5",
+    "CSS",
+    "JS",
+    "Coffeescript",
+    "Sass"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
