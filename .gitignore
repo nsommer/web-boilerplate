@@ -1,3 +1,10 @@
+# Package managers and stuff.
 node_modules/
 bower_components/
 .sass-cache/
+
+# CSS files are compiled from Sass files.
+css/
+
+# JS files are compiled from Coffeescript.
+js/
