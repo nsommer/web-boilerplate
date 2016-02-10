@@ -4,8 +4,13 @@
 
 module.exports = function (grunt) {
   grunt.initConfig({
-
     pkg: grunt.file.readJSON('package.json'),
+
+    clean: {
+      css: 'css/',
+      js: 'js/'
+    },
+
     sass: {
       dist: {
         options: {
@@ -38,31 +43,51 @@ module.exports = function (grunt) {
           sourceMap: true
         },
         files: {
-          "js/applications.js": "coffeescript/application.coffee"
+          'js/applications.js': 'coffeescript/**/*.coffee'
         }
       }
     },
 
+    uglify: {
+      options: {
+        mangle: false,
+        sourceMap: true
+      },
+      target: {
+        'js/application.min.js': 'application.js'
+      }
+    },
+
     watch: {
-      files: ['**/*.scss', '**/*.coffee'],
-      tasks: ['dist']
+      sass: {
+        files: ['sass/**/*.scss'],
+        tasks: ['sass']
+      },
+      coffee: {
+        files: ['coffee/**/*.coffee'],
+        tasks: ['coffee']
+      }
     },
 
     connect: {
       server: {
         options: {
-          port: 8080,
+          port: 8000,
           base: '.'
         }
       }
     }
   })
 
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-coffee');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
 
-  grunt.registerTask('build', ['sass', 'cssmin', 'coffee']);
+  grunt.registerTask('build-css', ['clean:css', 'sass', 'cssmin']);
+  grunt.registerTask('build-js', ['clean:js', 'coffee', 'uglify']);
+  grunt.registerTask('build', ['build-css', 'build-js']);
 }
