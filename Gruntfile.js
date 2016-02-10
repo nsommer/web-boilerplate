@@ -12,7 +12,7 @@ module.exports = function (grunt) {
     },
 
     sass: {
-      dist: {
+      bundle: {
         options: {
           style: 'expanded'
         },
@@ -26,7 +26,7 @@ module.exports = function (grunt) {
       options: {
         sourceMap: true
       },
-      target: {
+      bundle: {
         files: [{
           expand: true,
           cwd: 'css',
@@ -43,29 +43,46 @@ module.exports = function (grunt) {
           sourceMap: true
         },
         files: {
-          'js/applications.js': 'coffeescript/**/*.coffee'
+          'js/application.js': 'coffeescript/**/*.coffee'
         }
+      }
+    },
+
+    concat: {
+      options: {
+        sourceMap: true,
+        // Always use UNIX newlines, please.
+        separator: '\n'
+      },
+      bundle: {
+        // Put any vendor library files here:
+        src: [
+          'bower_components/jquery/dist/jquery.js',
+          'application.js'
+        ],
+        dest: 'js/application.js'
       }
     },
 
     uglify: {
       options: {
-        mangle: false,
         sourceMap: true
       },
-      target: {
-        'js/application.min.js': 'application.js'
+      bundle: {
+        files: {
+          'js/application.min.js': 'js/application.js'
+        }
       }
     },
 
     watch: {
       sass: {
         files: ['sass/**/*.scss'],
-        tasks: ['sass']
+        tasks: ['build-css']
       },
       coffee: {
         files: ['coffee/**/*.coffee'],
-        tasks: ['coffee']
+        tasks: ['build-js']
       }
     },
 
@@ -80,6 +97,7 @@ module.exports = function (grunt) {
   })
 
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-coffee');
@@ -88,6 +106,6 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
 
   grunt.registerTask('build-css', ['clean:css', 'sass', 'cssmin']);
-  grunt.registerTask('build-js', ['clean:js', 'coffee', 'uglify']);
+  grunt.registerTask('build-js', ['clean:js', 'coffee', 'concat', 'uglify']);
   grunt.registerTask('build', ['build-css', 'build-js']);
 }
