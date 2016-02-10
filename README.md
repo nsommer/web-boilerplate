@@ -1,6 +1,6 @@
 Dead simple boilerplate for HTML5 websites
 ==========================================
-*Web Boilerplate* is my dead simple skeleton for new static HTML5 websites. Optimized for the use off [Sass](http://sass-lang.com) and [CoffeeScript](http://coffeescript.org).
+*Web Boilerplate* is my dead simple skeleton for new static HTML5 websites. Optimized for the use of [Sass](http://sass-lang.com) and [CoffeeScript](http://coffeescript.org). Don't write the same Gruntfile over and over again.
 
 - HTML5 based
 - Containg commonly useful templates for files like `404.html`, `robots.txt` and `favicon.ico`
