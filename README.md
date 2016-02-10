@@ -28,5 +28,12 @@ bower install
 | `grunt watch:coffee` | Watches for CoffeeScript file changes and rebuilds. |
 | `grunt connect` | Starts an HTTP server at port *8000*. |
 
+### Including additional vendor code
+*Web Boilerplate* comes with **normalize.css** and **jQuery** by default. If you need to add additional vendor libraries that you want to include into your css or js bundle, simply do this:
+
+- Download the library using bower `bower install <library name>`.
+- If it's CSS/Sass: Just use the `import` function to include it into your `sass/application.scss`.
+- If it's JavaScript: Put the filename (including the path to the file) into the `concat:bundle:src` array of the `Gruntfile.js`.
+
 ## License
 MIT license rocks.
