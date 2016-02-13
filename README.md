@@ -8,6 +8,8 @@ Dead simple boilerplate for HTML5 websites
 - Useful `grunt.js` tasks for **Sass**, **CoffeeScript** or serving the website.
 - Includes **normalize.css** and **jQuery**.
 
+*Web Boilerplate* was inspired by [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate). It makes it easier to start with the CSS and JavaScript preprocessors [Sass](http://sass-lang.com) and [CoffeeScript](http://coffeescript.org).
+
 ## Customization
 Installation (depends on nodejs, bower, sass, grunt):
 
