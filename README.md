@@ -1,6 +1,7 @@
 Dead simple boilerplate for HTML5 websites
 ==========================================
 [![devDependency Status](https://img.shields.io/david/dev/nsommer/web-boilerplate.svg)](https://david-dm.org/nsommer/web-boilerplate#info=devDependencies)
+
 *Web Boilerplate* is my dead simple skeleton for new static HTML5 websites. Optimized for the use of [Sass](http://sass-lang.com) and [CoffeeScript](http://coffeescript.org). Don't write the same Gruntfile over and over again.
 
 - HTML5 based
